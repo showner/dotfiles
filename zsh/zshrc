@@ -1,0 +1,46 @@
+[[ -z "$ZSHDIR" ]] && export ZSHDIR=$HOME/.config/dotfiles/zsh
+[[ -z "$ZSHDIRCONF" ]] && export ZSHDIRCONF=$ZSHDIR/conf
+
+#Core editor
+EDITOR=vim
+
+# Prompt Personalization
+autoload -Uz vcs_info colors && colors
+
+# Autoload git completions
+autoload -Uz compinit && compinit
+
+zstyle ':vcs_info:*' enable git
+precmd() {
+    vcs_info
+}
+setopt prompt_subst
+# Turn off all beeps
+unsetopt BEEP
+
+# Load OSX config
+if [ $(uname) = "Darwin" ] && [ -e $ZSHDIRCONF/zshrc.darwin ]; then
+  echo "loading darwin config..."
+  source $ZSHDIRCONF/zshrc.darwin
+fi
+
+# Load local config
+if [ -e $ZSHDIRCONF/zshrc.local ]; then
+  echo "loading local config..."
+  source $ZSHDIRCONF/zshrc.local
+fi
+
+# Prevent zsh from storing commands history
+setopt HIST_IGNORE_SPACE
+
+# Load aliases
+source $ZSHDIRCONF/aliases
+
+PROMPT='%F{$ZDOTCOLOR}%n%f${vcs_info_msg_0_}% $ '
+zstyle ':vcs_info:git*' formats "@%F{yellow}%r%f%\:%F{green}%b%f(%F{magenta}%m%u%c%f)"
+
+# Load version manager PATH for some binaries, should be last loaded
+if [ $(uname) = "Darwin" ] && [ -e $ZSHDIRCONF/binaries_vm.darwin ]; then
+  echo "loading darwin binaries_vm..."
+  source $ZSHDIRCONF/binaries_vm.darwin
+fi

@@ -1,0 +1,42 @@
+#basic command
+alias l='ls -l'
+alias la='ls -la' 
+alias cd..='cd ..'
+alias dopen='openn $PWD'
+
+#git commands
+alias gr='git remote add origin'
+alias gp='git push'
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gca='git commit --amend'
+alias gck='git checkout'
+alias glg="git log --graph --pretty=format:'%C(bold)–%Creset %C(red bold)%h%d%Creset | %C(green)%an%Creset | %C(magenta)%cr%Creset | %C(cyan)%s%Creset'"
+
+#Ruby/Rails
+alias bi='bundle install'
+alias bu='bundle update'
+alias cop='rubocop -c .rubocop_hard.yml'
+alias rs='rails server'
+alias rc='rails console'
+alias rr='rails routes'
+alias rrg='rails routes | grep '
+alias test='rspec --fail-fast'
+alias ptest='rake parallel:spec'
+alias redo='dcd && dcud && rseed && rs'
+alias rnorm='rubocop && slim-lint app/views/'
+alias rtest='rubocop && test'
+alias rsetdb='rails db:create db:migrate'
+alias rsetdbs='rails db:create db:migrate db:schema:load'
+
+#Docker
+alias dc='docker-compose'
+alias dcu='dc up'
+alias dcud='dc up -d'
+alias dcd='dc down'
+
+#Local SSH
+alias sshl='ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
+
