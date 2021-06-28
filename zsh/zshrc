@@ -40,7 +40,7 @@ PROMPT='%F{$ZDOTCOLOR}%n%f${vcs_info_msg_0_}% $ '
 zstyle ':vcs_info:git*' formats "@%F{yellow}%r%f%\:%F{green}%b%f(%F{magenta}%m%u%c%f)"
 
 # Load version manager PATH for some binaries, should be last loaded
-if [ $(uname) = "Darwin" ] && [ -e $ZSHDIRCONF/binaries_vm.darwin ]; then
-  echo "loading darwin binaries_vm..."
-  source $ZSHDIRCONF/binaries_vm.darwin
+if [ $(uname) = "Darwin" ] && [ -e $ZSHDIRCONF/soft.darwin.local ]; then
+  echo "loading soft PATH..."
+  source $ZSHDIRCONF/soft.darwin.local
 fi
