@@ -1,11 +1,10 @@
-#basic command
+# Basic command
 alias l='ls -l'
 alias la='ls -la' 
 alias cd..='cd ..'
 alias dopen='openn $PWD'
 
-#git commands
-alias gr='git remote add origin'
+# Git commands
 alias gp='git push'
 alias gs='git status'
 alias ga='git add'
@@ -15,7 +14,7 @@ alias gca='git commit --amend'
 alias gck='git checkout'
 alias glg="git log --graph --pretty=format:'%C(bold)–%Creset %C(red bold)%h%d%Creset | %C(green)%an%Creset | %C(magenta)%cr%Creset | %C(cyan)%s%Creset'"
 
-#Ruby/Rails
+# Ruby/Rails
 alias bi='bundle install'
 alias bu='bundle update'
 alias cop='rubocop -c .rubocop_hard.yml'
@@ -23,20 +22,44 @@ alias rs='rails server'
 alias rc='rails console'
 alias rr='rails routes'
 alias rrg='rails routes | grep '
-alias test='rspec --fail-fast'
-alias ptest='rake parallel:spec'
+alias spec='rspec --fail-fast'
+alias pspec='rake parallel:spec'
 alias redo='dcd && dcud && rseed && rs'
 alias rnorm='rubocop && slim-lint app/views/'
-alias rtest='rubocop && test'
+alias rtest='rubocop && spec'
 alias rsetdb='rails db:create db:migrate'
 alias rsetdbs='rails db:create db:migrate db:schema:load'
 
-#Docker
+# Docker
 alias dc='docker-compose'
 alias dcu='dc up'
 alias dcud='dc up -d'
 alias dcd='dc down'
+alias dcdud='dcd && dcud'
 
-#Local SSH
+# Local SSH
 alias sshl='ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
 
+# The fuck
+eval "$(thefuck --alias)"
+alias fu=fuck
+
+
+
+# Load OSX aliases
+if [ $(uname) = "Darwin" ] && [ -e $ZSHDIRCONF/aliases.darwin ]; then
+  loadings+="Macos aliases "
+  source $ZSHDIRCONF/aliases.darwin
+fi
+
+# Load Linux config
+if [ $(uname) = "Linux" ] && [ -e $ZSHDIRCONF/aliases.linux ]; then
+  loadings+="Linux aliases "
+  source $ZSHDIRCONF/aliases.linux
+fi
+
+# Load local config
+if [ -e $ZSHDIRCONF/aliases.local ]; then
+  loadings+="Local aliases "
+  source $ZSHDIRCONF/aliases.local
+fi

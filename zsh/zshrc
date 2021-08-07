@@ -1,3 +1,5 @@
+# help for colors: reset = 0, black = 30, red = 31, green = 32, yellow = 33, blue = 34, magenta = 35, cyan = 36, and white = 37.
+
 [[ -z "$ZSHDIR" ]] && export ZSHDIR=$HOME/.config/dotfiles/zsh
 [[ -z "$ZSHDIRCONF" ]] && export ZSHDIRCONF=$ZSHDIR/conf
 
@@ -7,7 +9,7 @@ EDITOR=vim
 # Prompt Personalization
 autoload -Uz vcs_info colors && colors
 
-# Autoload git completions
+# Autoload completions
 autoload -Uz compinit && compinit
 
 zstyle ':vcs_info:*' enable git
@@ -18,32 +20,32 @@ setopt prompt_subst
 # Turn off all beeps
 unsetopt BEEP
 
-# Load OSX config
-if [ $(uname) = "Darwin" ] && [ -e $ZSHDIRCONF/zshrc.darwin ]; then
-  echo "loading darwin config..."
-  source $ZSHDIRCONF/zshrc.darwin
-fi
-
-# Load local config
-if [ -e $ZSHDIRCONF/zshrc.local ]; then
-  echo "loading local config..."
-  source $ZSHDIRCONF/zshrc.local
-fi
-
 # Prevent zsh from storing commands history
 setopt HIST_IGNORE_SPACE
+
+# Reset
+loadings=""
 
 # Load aliases
 source $ZSHDIRCONF/aliases
 
+# Check if ZDOTCOLOR is set
+[[ -z "$ZDOTCOLOR" ]] && printf "\e[1;31mZDOTCOLOR not set\e[0m, pick one of \e[1;30mblack\e[0m, \e[1;31mred\e[0m, \e[1;32mgreen\e[0m, \e[1;33myellow\e[0m, \e[1;34mblue\e[0m, \e[1;35magenta\e[0m, \e[1;36mcyan\e[0m, \e[1;37mwhite\e[0m :\necho \"ZDOTCOLOR=green\" >> \$ZSHDIRCONF/aliases.local\n"
+
 PROMPT='%F{$ZDOTCOLOR}%n%f${vcs_info_msg_0_}% $ '
+RPROMPT='%T'
 zstyle ':vcs_info:git*' formats "@%F{yellow}%r%f%\:%F{green}%b%f(%F{magenta}%m%u%c%f)"
 
-# Load version manager PATH for some binaries, should be last loaded
-if [ $(uname) = "Darwin" ] && [ -e $ZSHDIRCONF/soft.darwin.local ]; then
-  echo "loading soft PATH..."
-  source $ZSHDIRCONF/soft.darwin.local
+# Load to PATH for some binaries, should be last loaded
+if [ $(uname) = "Darwin" ] && [ -e $ZSHDIRCONF/soft.darwin ]; then
+  loadings+="Softs to PATH"
+  source $ZSHDIRCONF/soft.darwin
 fi
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+# Load to PATH for some binaries, should be last loaded
+if [ $(uname) = "Linux" ] && [ -e $ZSHDIRCONF/soft.linux ]; then
+  loadings+="Softs to PATH"
+  source $ZSHDIRCONF/soft.linux
+fi
+
+echo "Loading $loadings..."
