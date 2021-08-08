@@ -36,6 +36,7 @@ alias dcu='dc up'
 alias dcud='dc up -d'
 alias dcd='dc down'
 alias dcdud='dcd && dcud'
+alias dexec='docker exec -it'
 
 # Local SSH
 alias sshl='ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
