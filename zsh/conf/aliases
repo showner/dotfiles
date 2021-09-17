@@ -41,12 +41,6 @@ alias dexec='docker exec -it'
 # Local SSH
 alias sshl='ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
 
-# The fuck
-eval "$(thefuck --alias)"
-alias fu=fuck
-
-
-
 # Load OSX aliases
 if [ $(uname) = "Darwin" ] && [ -e $ZSHDIRCONF/aliases.darwin ]; then
   loadings+="Macos aliases "
