@@ -1,4 +1,4 @@
-# Location of cast apps
+# Location of cask apps
 cask_args appdir: '/Applications'
 
 tap 'homebrew/bundle'

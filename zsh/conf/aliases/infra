@@ -1,0 +1,2 @@
+# Infra
+alias sshl='ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
