@@ -1,0 +1,7 @@
+# Docker
+alias dc='docker-compose'
+alias dcu='dc up'
+alias dcud='dc up -d'
+alias dcd='dc down'
+alias dcdud='dcd && dcud'
+alias dexec='docker exec -it'
