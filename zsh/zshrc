@@ -30,3 +30,4 @@ loadings=""
 source $ZSHDIRCONF/conf
 
 echo "Loading $loadings..."
+source /Users/showner/.asdf/asdf.sh

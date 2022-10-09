@@ -25,6 +25,3 @@ fi
 # The fuck
 eval "$(thefuck --alias)"
 alias fu=fuck
-
-# Rbenv
-eval "$(rbenv init - zsh)"

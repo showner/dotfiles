@@ -4,7 +4,7 @@ Have [Homebrew](https://brew.sh/) installed
 
 # Install
 
-Clone the repo, have tmux and zsh installed,
+Clone the repo, make sure to have homebrew installed!
 
 execute `./install.sh`
 
