@@ -1,0 +1,2 @@
+source $ZSHDIR/conf/darwin/aliases
+source $ZSHDIR/conf/darwin/path_things

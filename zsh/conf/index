@@ -1,0 +1,18 @@
+case $(uname) in
+
+  "Darwin")
+    echo "Darwined"
+    source $ZSHDIR/conf/darwin/index
+    ;;
+
+  "Linux")
+    source $ZSHDIR/conf/linux/index
+    ;;
+
+  *)
+    echo "No $(uname) conf found"
+    ;;
+esac
+
+source $ZSHDIR/conf/conf.local
+source $ZSHDIR/conf/prompt

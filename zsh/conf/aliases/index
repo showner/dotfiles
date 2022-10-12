@@ -1,0 +1,10 @@
+# Basic command
+alias l='ls -l'
+alias la='ls -la' 
+alias cd..='cd ..'
+alias dopen='openn $PWD'
+
+source $ZSHDIR/conf/aliases/docker
+source $ZSHDIR/conf/aliases/git
+source $ZSHDIR/conf/aliases/infra
+source $ZSHDIR/conf/aliases/ruby

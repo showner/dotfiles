@@ -1,9 +1,8 @@
 # help for colors: reset = 0, black = 30, red = 31, green = 32, yellow = 33, blue = 34, magenta = 35, cyan = 36, and white = 37.
 
 [[ -z "$ZSHDIR" ]] && export ZSHDIR=$HOME/.config/dotfiles/zsh
-[[ -z "$ZSHDIRCONF" ]] && export ZSHDIRCONF=$ZSHDIR/conf
 
-#Core editor
+# Set core editor
 EDITOR=vim
 
 # Prompt Personalization
@@ -17,17 +16,15 @@ precmd() {
     vcs_info
 }
 setopt prompt_subst
+
 # Turn off all beeps
 unsetopt BEEP
 
 # Prevent zsh from storing commands history
 setopt HIST_IGNORE_SPACE
 
-# Reset 
-loadings=""
-
 # Load conf
-source $ZSHDIRCONF/conf
+source $ZSHDIR/conf/index
 
-echo "Loading $loadings..."
+# Load asdf
 source /Users/showner/.asdf/asdf.sh

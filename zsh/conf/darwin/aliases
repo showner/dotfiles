@@ -1,3 +1,5 @@
+source $ZSHDIR/conf/aliases/index
+
 #Opening with paricular program
 # Editors
 alias openn='open -a "Sublime Text"'
@@ -14,7 +16,7 @@ alias edge='open -a "Microsoft Edge"'
 alias music='open -a "Spotify"'
 
 # Fix rails console broken: https://blog.phusion.nl/2017/10/13/why-ruby-app-servers-break-on-macos-high-sierra-and-what-can-be-done-about-it/
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+# export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 # Homebrew on arm64 (M1)
 if [[ "${"$(/usr/bin/uname -m)"}" == "arm64" ]]
