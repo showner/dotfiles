@@ -7,3 +7,6 @@ alias gcm='git commit -m'
 alias gca='git commit --amend'
 alias gck='git checkout'
 alias glg="git log --graph --pretty=format:'%C(bold)–%Creset %C(red bold)%h%d%Creset | %C(green)%an%Creset | %C(magenta)%cr%Creset | %C(cyan)%s%Creset'"
+alias gsta='git stash'
+alias gstal='git stash list'
+alias gstap='git stash pop'

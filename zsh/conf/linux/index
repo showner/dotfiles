@@ -1,3 +1,2 @@
 source $ZSHDIR/conf/linux/aliases
 source $ZSHDIR/conf/linux/path_things
-

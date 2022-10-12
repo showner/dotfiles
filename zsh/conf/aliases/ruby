@@ -1,15 +1,19 @@
-# Ruby/Rails
+ # Ruby/Rails
+alias be='bundle exec'
 alias bi='bundle install'
 alias bu='bundle update'
-alias cop='rubocop -c .rubocop_hard.yml'
-alias rs='rails server'
-alias rc='rails console'
-alias rr='rails routes'
-alias rrg='rails routes | grep '
-alias spec='rspec --fail-fast'
-alias pspec='rake parallel:spec'
+
+alias rs='be rails s'
+alias rc='be rails c'
+alias rr='be rails routes'
+alias rrg='be rails routes | grep '
+
+alias bew='be bin/webpacker-dev-server'
+
+alias nspec='be rspec --next-failure'
+alias spec='be rspec --fail-fast'
+alias rtest='be rubocop && spec'
+
 alias redo='dcd && dcud && rseed && rs'
-alias rnorm='rubocop && slim-lint app/views/'
-alias rtest='rubocop && spec'
 alias rsetdb='rails db:create db:migrate'
 alias rsetdbs='rails db:create db:migrate db:schema:load'
