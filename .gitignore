@@ -3,3 +3,5 @@
 **/**.local
 
 Brewfile.lock.json
+
+Makefile
