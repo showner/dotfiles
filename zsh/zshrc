@@ -27,4 +27,4 @@ setopt HIST_IGNORE_SPACE
 source $ZSHDIR/conf/index
 
 # Load asdf
-source /Users/showner/.asdf/asdf.sh
+source /Users/$(whoami)/.asdf/asdf.sh
