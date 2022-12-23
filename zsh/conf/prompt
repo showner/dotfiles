@@ -16,9 +16,7 @@ some_func()
 # Example RPROMPT='%F{magenta}$(some_func)%f %T'
 
 
-if [[ -z "$PROMPT" ]]; then
-  PROMPT='%F{$ZDOTCOLOR}%n%f${vcs_info_msg_0_}% $ '
-fi
+PROMPT='%F{$ZDOTCOLOR}%n%f${vcs_info_msg_0_}% $ '
 if [[ -z "$RPROMPT" ]]; then
   RPROMPT='%T'
 fi
