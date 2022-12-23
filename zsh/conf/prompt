@@ -5,6 +5,21 @@ if [[ -z "$ZDOTCOLOR" ]]; then
   export ZDOTCOLOR=green
 fi
 
-PROMPT='%F{$ZDOTCOLOR}%n%f${vcs_info_msg_0_}% $ '
-RPROMPT='%T'
+some_func()
+{
+    if [[ -f "filename" ]];
+    then
+      echo $(grep -v '^#' filename | grep -e "^STARTING_WITH_ENV" | sed -e 's/.*=//')
+    fi
+}
+
+# Example RPROMPT='%F{magenta}$(some_func)%f %T'
+
+
+if [[ -z "$PROMPT" ]]; then
+  PROMPT='%F{$ZDOTCOLOR}%n%f${vcs_info_msg_0_}% $ '
+fi
+if [[ -z "$RPROMPT" ]]; then
+  RPROMPT='%T'
+fi
 zstyle ':vcs_info:git*' formats "@%F{yellow}%r%f%\:%F{green}%b%f"
