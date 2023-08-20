@@ -5,15 +5,7 @@ source $ZSHDIR/conf/aliases/index
 alias openn='open -a "Sublime Text"'
 
 # Web Browser
-alias chrome='open -a "Google Chrome"'
-alias firefox='open -a "Firefox"'
-alias mozilla=firefox
-alias safari='open -a "Safari"'
 alias brave='open -a "Brave Browser"'
-alias edge='open -a "Microsoft Edge"'
-
-# Other Apps
-alias music='open -a "Spotify"'
 
 # Fix rails console broken: https://blog.phusion.nl/2017/10/13/why-ruby-app-servers-break-on-macos-high-sierra-and-what-can-be-done-about-it/
 # export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES

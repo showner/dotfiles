@@ -6,6 +6,7 @@ alias ga='git add'
 alias gc='git commit'
 alias gcm='git commit -m'
 alias gca='git commit --amend'
+alias gcan='git commit --amend --no-edit'
 alias gck='git checkout'
 alias glg="git log --graph --pretty=format:'%C(bold)–%Creset %C(red bold)%h%d%Creset | %C(green)%an%Creset | %C(magenta)%cr%Creset | %C(cyan)%s%Creset'"
 alias gsta='git stash'

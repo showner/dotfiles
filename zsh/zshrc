@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # help for colors: reset = 0, black = 30, red = 31, green = 32, yellow = 33, blue = 34, magenta = 35, cyan = 36, and white = 37.
 
 [[ -z "$ZSHDIR" ]] && export ZSHDIR=$HOME/.config/dotfiles/zsh
@@ -9,7 +11,7 @@ EDITOR=vim
 autoload -Uz vcs_info colors && colors
 
 # Autoload completions
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -i
 
 zstyle ':vcs_info:*' enable git
 precmd() {
@@ -28,3 +30,6 @@ source $ZSHDIR/conf/index
 
 # Load asdf
 source /Users/$(whoami)/.asdf/asdf.sh
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

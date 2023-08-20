@@ -1,2 +1,3 @@
 source $ZSHDIR/conf/darwin/aliases
 source $ZSHDIR/conf/darwin/path_things
+export HOMEBREW_BREWFILE=$ZSHDIR/../homebrew/macos/Brewfile

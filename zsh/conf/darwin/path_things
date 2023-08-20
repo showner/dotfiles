@@ -23,6 +23,10 @@ export PATH="/opt/homebrew/bin:$PATH"
 
 # Load Cargo (Rust thing)
 export PATH="$PATH:$HOME/.cargo/env"
+export PATH="$PATH:$HOME/.asdf/installs/rust/1.68.0/bin"
 
 # Load Postgresql bins
 export PATH="$PATH:/opt/homebrew/opt/postgresql@15/bin"
+
+# Load local/bin
+export PATH="$PATH:$HOME/.local/bin"
